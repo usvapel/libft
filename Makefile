@@ -34,14 +34,14 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I. -c $< -o $@
+%.o: %.c $(INC)
+	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean:	clean
-	rm -f $(NAME) bonus
+	@rm -f $(NAME) bonus
 
 re:	fclean all
 
