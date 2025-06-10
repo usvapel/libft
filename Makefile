@@ -13,9 +13,9 @@
 # =============================== CONFIGURATION ============================== #
 
 NAME		:= libft.a
-CC		:= cc
+CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
-AR		:= ar rcs
+AR			:= ar rcs
 
 SRC_DIR		:= src
 OBJ_DIR		:= obj
@@ -24,7 +24,7 @@ DEP_DIR		:= $(OBJ_DIR)/.deps
 
 MARKER		:= .standard_build
 DEPFLAGS	= -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
-INC		:= -I./$(INC_DIR)
+INC			:= -I./$(INC_DIR)
 
 # ================================ COLOR CODES =============================== #
 
@@ -40,30 +40,30 @@ RESET		:= $(shell tput sgr0)
 # =============================== SOURCE FILES =============================== #
 
 CHAR_SRCS	:= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
-		ft_isprint.c ft_toupper.c ft_tolower.c
+			ft_isprint.c ft_toupper.c ft_tolower.c
 
 STR_SRCS	:= ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c \
-		ft_strrchr.c ft_strncmp.c ft_strnstr.c ft_strdup.c \
-		ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
-		ft_strmapi.c ft_striteri.c ft_reverse_string.c
+			ft_strrchr.c ft_strncmp.c ft_strnstr.c ft_strdup.c \
+			ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
+			ft_strmapi.c ft_striteri.c ft_reverse_string.c
 
 MEM_SRCS	:= ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
-		ft_memchr.c ft_memcmp.c ft_calloc.c
+			ft_memchr.c ft_memcmp.c ft_calloc.c
 
 FD_SRCS		:= get_next_line.c ft_putchar_fd.c ft_putstr_fd.c \
-		ft_putendl_fd.c get_next_line_utils.c ft_putnbr_fd.c \
-		ft_uputnbr_fd.c
+			ft_putendl_fd.c get_next_line_utils.c ft_putnbr_fd.c \
+			ft_uputnbr_fd.c
 
 CONV_SRCS	:= ft_atoi.c ft_itoa.c ft_printf.c
 
 LST_SRCS	:= ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
-		ft_lstsize_bonus.c ft_lstlast_bonus.c \
-		ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-		ft_lstclear_bonus.c ft_lstiter_bonus.c \
-		ft_lstmap_bonus.c
+			ft_lstsize_bonus.c ft_lstlast_bonus.c \
+			ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c ft_lstiter_bonus.c \
+			ft_lstmap_bonus.c
 
 SRCS		:= $(CHAR_SRCS) $(STR_SRCS) $(MEM_SRCS) $(FD_SRCS) \
-		$(CONV_SRCS) $(LST_SRCS)
+			$(CONV_SRCS) $(LST_SRCS)
 OBJS		:= $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 TOTAL_SRCS	:= $(words $(SRCS))
 
@@ -72,8 +72,8 @@ TOTAL_SRCS	:= $(words $(SRCS))
 LAST_PERCENTAGE		:= 0
 COMPILED_COUNT		:= 0
 
-is_up_to_date	= [ -f $(NAME) ] && \
-		[ -z "$$(find $(SRC_DIR) -name '*.c' -newer $(NAME) 2>/dev/null)" ]
+is_up_to_date		= [ -f $(NAME) ] && \
+					[ -z "$$(find $(SRC_DIR) -name '*.c' -newer $(NAME) 2>/dev/null)" ]
 
 # =================================== TARGETS ================================ #
 
